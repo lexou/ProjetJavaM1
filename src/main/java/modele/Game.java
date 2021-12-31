@@ -41,7 +41,7 @@ public class Game {
 	
 	//Methodes
 	
-	public boolean isResolu() { //
+	public boolean isResolu() { // Celia: j'me suis dit que ca pourrait faire le taff du checker mais isConnected ne semble pas fonctionner
 		for(int i=0; i<h; i++) {
 			for(int j=0; j<w; j++) {
 				if(!isConnected(this.board[i][j])) {
@@ -52,7 +52,7 @@ public class Game {
 		return true;
 	}
 	
-	public boolean isConnected(Piece p) {
+	public boolean isConnected(Piece p) { //n'a pas l'air de fonctionner pour le moment ?
 		int i=p.getI();
 		int j=p.getJ();
 		Piece p2=null;;
@@ -101,15 +101,15 @@ public class Game {
 	
 	@Override
 	public String toString() {
-		String sb="";
+		String s="";
 		for(int i=0; i<h;i++) {
 			for(int j =0; j<w;j++) {
 				Piece p = board[i][j];
-				sb+=(p.getUnicode());
+				s+=(p.getUnicode());
 			}
-			sb+=("\n");
+			s+=("\n");
 		}
-		return sb.toString();
+		return s.toString();
 	}
 	
 	
