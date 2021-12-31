@@ -341,8 +341,8 @@ public class Generator {
 	}
 	
 	public static void main(String[] args) throws IOException {  
-		Piece[][] board = new Piece[4][4];
-		Game game=new Game(4,4,board);
+		Piece[][] board = new Piece[8][8];
+		Game game=new Game(8,8,board);
 		Generator generator=new Generator(game);
 		generator.generate();
 		FrmLoop frame = new FrmLoop(game);
