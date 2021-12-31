@@ -36,47 +36,47 @@ public class Generator {
 		return hautGauche;
 	}
 	
-	public Piece[] hautDroit() { //ensemble des pieces possibles pour le coin en haut à droite
-		Piece hautDroit[]= { new Empty_Piece(0, 0, 0), new L_Piece(0,0,2), new O_Piece(0,0,3), new O_Piece(0,0,2)};
+	public Piece[] hautDroit(int i, int j) {
+		Piece hautDroit[]= { new Empty_Piece(i, j, 0), new L_Piece(i,j,2), new O_Piece(i,j,3), new O_Piece(i,j,2)};
 		return hautDroit;
 	}
 	
-	public Piece[] basGauche() { //ensemble des pieces possibles pour le coin en bas à gauche
-		Piece basGauche[]= { new Empty_Piece(0,0,0), new L_Piece(0,0,0), new O_Piece(0,0,0), new O_Piece(0,0,1)};
+	public Piece[] basGauche(int i,int j) {
+		Piece basGauche[]= { new Empty_Piece(i,j,0), new L_Piece(i,j,0), new O_Piece(i,j,0), new O_Piece(i,j,1)};
 		return basGauche;
 	}
 	
-	public Piece[] basDroit() { //ensemble des pieces possibles pour le coin en bas à droite
-		Piece basDroit[]= { new Empty_Piece(0,0,0), new L_Piece(0,0,3), new O_Piece(0,0,0), new O_Piece(0,0,3)};
+	public Piece[] basDroit(int i, int j) {
+		Piece basDroit[]= { new Empty_Piece(i,j,0), new L_Piece(i,j,3), new O_Piece(i,j,0), new O_Piece(i,j,3)};
 		return basDroit;
 	}
 	
-	public Piece[] haut() { //ensemble des pieces possibles pour le haut
-		Piece haut[]= { new Empty_Piece(0,0,0), new I_Piece(0,0,1), new L_Piece(0,0,1), new L_Piece(0,0,2), new O_Piece(0,0,1), new O_Piece(0,0,3), new O_Piece(0,0,2), new T_Piece(0,0,2)};
+	public Piece[] haut(int i, int j) {
+		Piece haut[]= { new Empty_Piece(i,j,0), new I_Piece(i,j,1), new L_Piece(i,j,1), new L_Piece(i,j,2), new O_Piece(i,j,1), new O_Piece(i,j,3), new O_Piece(i,j,2), new T_Piece(i,j,2)};
 		return haut;
 	}
 	
-	public Piece[] gauche() { //ensemble des pieces possibles à gauche
-		Piece gauche[]= { new Empty_Piece(0,0,0), new I_Piece(0,0,0), new L_Piece(0,0,0), new L_Piece(0,0,1), new O_Piece(0,0,1), new O_Piece(0,0,0), new O_Piece(0,0,2), new T_Piece(0,0,1)};
+	public Piece[] gauche(int i,int j) {
+		Piece gauche[]= { new Empty_Piece(i,j,0), new I_Piece(i,j,0), new L_Piece(i,j,0), new L_Piece(i,j,1), new O_Piece(i,j,1), new O_Piece(i,j,0), new O_Piece(i,j,2), new T_Piece(i,j,1)};
 		return gauche;
 	}
 	
-	public Piece[] droite() { //ensemble des pieces possibles à droite
-		Piece droite[]= { new Empty_Piece(0,0,0), new I_Piece(0,0,0), new L_Piece(0,0,2), new L_Piece(0,0,3), new O_Piece(0,0,3), new O_Piece(0,0,0), new O_Piece(0,0,2), new T_Piece(0,0,3)};
+	public Piece[] droite(int i, int j) {
+		Piece droite[]= { new Empty_Piece(i,j,0), new I_Piece(i,j,0), new L_Piece(i,j,2), new L_Piece(i,j,3), new O_Piece(i,j,3), new O_Piece(i,j,0), new O_Piece(i,j,2), new T_Piece(i,j,3)};
 		return droite;
 	}
 	
-	public Piece[] bas(){ //ensemble des pieces possibles pour le bas
-		Piece bas[]={ new Empty_Piece(0,0,0), new I_Piece(0,0,1), new L_Piece(0,0,0), new L_Piece(0,0,3), new O_Piece(0,0,1), new O_Piece(0,0,3), new O_Piece(0,0,3), new T_Piece(0,0,0)};
+	public Piece[] bas(int i,int j){
+		Piece bas[]={ new Empty_Piece(i,j,0), new I_Piece(i,j,1), new L_Piece(i,j,0), new L_Piece(i,j,3), new O_Piece(i,j,1), new O_Piece(i,j,3), new O_Piece(i,j,3), new T_Piece(i,j,0)};
 		return bas;
 	}
 	
-	public Piece[] milieu() { //ensemble des pieces possibles pour le milieu
-		Piece milieu[]= {  new Empty_Piece(0,0,0), new I_Piece(0,0,0), new I_Piece(0,0,1), new L_Piece(0,0,0), new L_Piece(0,0,1), new L_Piece(0,0,2), new L_Piece(0,0,3), new O_Piece(0,0,1), new O_Piece(0,0,3), new O_Piece(0,0,0), new O_Piece(0,0,2), new T_Piece(0,0,0),new T_Piece(0,0,1),new T_Piece(0,0,2),new T_Piece(0,0,3), new X_Piece(0,0,0)};
+	public Piece[] milieu(int i, int j) {
+		Piece milieu[]= {  new Empty_Piece(i,j,0), new I_Piece(i,j,0), new I_Piece(i,j,1), new L_Piece(i,j,0), new L_Piece(i,j,1), new L_Piece(i,j,2), new L_Piece(i,j,3), new O_Piece(i,j,1), new O_Piece(i,j,3), new O_Piece(i,j,0), new O_Piece(i,j,2), new T_Piece(i,j,0),new T_Piece(i,j,1),new T_Piece(i,j,2),new T_Piece(i,j,3), new X_Piece(i,j,0)};
 		return milieu;
 	}
 	
-	public void generateInitBoard() { //genere un jeu deja resolu
+	public void generateInitBoard() {
 		Piece[][] board=game.getBoard();
 		Random rand = new Random();
 		for (int i=0; i<game.getH(); i++) {
@@ -87,7 +87,7 @@ public class Generator {
 				else if(i==0 && j<game.getW()-1) { //haut
 					if(board[i][j-1].isDroite()){ //si contact du cote droit
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : haut()) {
+						for( Piece p : haut(i,j)) {
 							if(p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -96,7 +96,7 @@ public class Generator {
 					}
 					else { //si pas de contact du cote droit
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : haut()) {
+						for( Piece p : haut(i,j)) {
 							if(!p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -107,7 +107,7 @@ public class Generator {
 				else if (i==0 && j==game.getW()-1) { // coin haut droit
 					if(board[i][j-1].isDroite()){ //si contact du cote droit
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : hautDroit()) {
+						for( Piece p : hautDroit(i,j)) {
 							if(p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -116,7 +116,7 @@ public class Generator {
 					}
 					else { //si pas de contact du cote droit
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : hautDroit()) {
+						for( Piece p : hautDroit(i,j)) {
 							if(!p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -127,7 +127,7 @@ public class Generator {
 				else if (i<game.getW()-1 && j==0) { // cote gauche
 					if(board[i-1][j].isBas()) { //si contact en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : gauche()) {
+						for( Piece p : gauche(i,j)) {
 							if(p.isHaut()) { 
 								tmp.add(p);
 							}
@@ -136,7 +136,7 @@ public class Generator {
 					}
 					else { //si pas de contact vers le bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : gauche()) {
+						for( Piece p : gauche(i,j)) {
 							if(!p.isHaut()) { 
 								tmp.add(p);
 							}
@@ -147,7 +147,7 @@ public class Generator {
 				else if (i<game.getH()-1 && j==game.getW()-1) {  //cote droit
 					if(board[i][j-1].isDroite() && board[i-1][j].isBas()) { //si contact a droite et en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : droite()) {
+						for( Piece p : droite(i,j)) {
 							if(p.isGauche() && p.isHaut()) { 
 								tmp.add(p);
 							}
@@ -156,7 +156,7 @@ public class Generator {
 					}
 					else if (board[i][j-1].isDroite() && !board[i-1][j].isBas()) { //si contact a droite 
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : droite()) {
+						for( Piece p : droite(i,j)) {
 							if(p.isGauche() && !p.isHaut()) { 
 								tmp.add(p);
 							}
@@ -165,7 +165,7 @@ public class Generator {
 					}
 					else if (!board[i][j-1].isDroite() && board[i-1][j].isBas()) { //si contact en bas 
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : droite()) {
+						for( Piece p : droite(i,j)) {
 							if(!p.isGauche() && p.isHaut()) { 
 								tmp.add(p);
 							}
@@ -174,7 +174,7 @@ public class Generator {
 					}
 					else {
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : droite()) {
+						for( Piece p : droite(i,j)) {
 							if(!p.isGauche() && !p.isHaut()) { 
 								tmp.add(p);
 							}
@@ -185,7 +185,7 @@ public class Generator {
 				else if (i==game.getH()-1 && j==0) { //coin bas gauche
 					if(board[i-1][j].isBas()) { //si contact en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : basGauche()) {
+						for( Piece p : basGauche(i,j)) {
 							if(p.isHaut()) { 
 								tmp.add(p);
 							}
@@ -194,7 +194,7 @@ public class Generator {
 					}
 					else { // si pas de contact en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : basGauche()) {
+						for( Piece p : basGauche(i,j)) {
 							if(!p.isHaut()) { 
 								tmp.add(p);
 							}
@@ -205,7 +205,7 @@ public class Generator {
 				else if (i==game.getH()-1 && j<game.getW()-1) { //bas
 					if(board[i][j-1].isDroite() && board[i-1][j].isBas()) { //si contact en bas et a droite
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : bas()) {
+						for( Piece p : bas(i,j)) {
 							if(p.isHaut() && p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -214,7 +214,7 @@ public class Generator {
 					}
 					else if (board[i][j-1].isDroite() && !board[i-1][j].isBas()) { //si contact a droite
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : bas()) {
+						for( Piece p : bas(i,j)) {
 							if(!p.isHaut() && p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -223,7 +223,7 @@ public class Generator {
 					}
 					else if (!board[i][j-1].isDroite() && board[i-1][j].isBas()) { //si contact en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : bas()) {
+						for( Piece p : bas(i,j)) {
 							if(p.isHaut() && !p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -232,7 +232,7 @@ public class Generator {
 					}
 					else { 
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : bas()) {
+						for( Piece p : bas(i,j)) {
 							if(!p.isGauche() && !p.isHaut()) { 
 								tmp.add(p);
 							}
@@ -243,7 +243,7 @@ public class Generator {
 				else if (i==game.getH()-1 && j==game.getW()-1) { //coin bas droit
 					if (board[i][j-1].isDroite() && board[i-1][j].isBas()) { // si contact a droite et en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : basDroit()) {
+						for( Piece p : basDroit(i,j)) {
 							if(p.isHaut() && p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -252,7 +252,7 @@ public class Generator {
 					}
 					else if (board[i][j-1].isDroite() && !board[i-1][j].isBas()) { //si contact a droite
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for(Piece p : basDroit()) {
+						for(Piece p : basDroit(i,j)) {
 							if(!p.isHaut() && p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -261,7 +261,7 @@ public class Generator {
 					}
 					else if (!board[i][j-1].isDroite() && board[i-1][j].isBas()) { // si contact en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : basDroit()) {
+						for( Piece p : basDroit(i,j)) {
 							if(p.isHaut() && !p.isGauche()){ 
 								tmp.add(p);
 							}
@@ -270,7 +270,7 @@ public class Generator {
 					}
 					else { 
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : basDroit()) {
+						for( Piece p : basDroit(i,j)) {
 							if(!p.isGauche() && !p.isHaut()){ 
 								tmp.add(p);
 							}
@@ -281,7 +281,7 @@ public class Generator {
 				else { //milieu
 					if (board[i][j-1].isDroite() && board[i-1][j].isBas()) {
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : milieu()) {
+						for( Piece p : milieu(i,j)) {
 							if(p.isHaut() && p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -290,7 +290,7 @@ public class Generator {
 					}
 					else if (board[i][j-1].isDroite() && !board[i-1][j].isBas()) {
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : milieu()) {
+						for( Piece p : milieu(i,j)) {
 							if(!p.isHaut() && p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -299,7 +299,7 @@ public class Generator {
 					}
 					else if (!board[i][j-1].isDroite() && board[i-1][j].isBas()) {
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : milieu()) {
+						for( Piece p : milieu(i,j)) {
 							if(p.isHaut() && !p.isGauche()) { 
 								tmp.add(p);
 							}
@@ -308,7 +308,7 @@ public class Generator {
 					}
 					else {
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
-						for( Piece p : milieu()) {
+						for( Piece p : milieu(i,j)) {
 							if(!p.isHaut() && !p.isGauche()) { 
 								tmp.add(p);
 							}
