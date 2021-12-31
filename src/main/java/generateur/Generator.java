@@ -31,52 +31,52 @@ public class Generator {
 	//Setter
 	
 	//Methodes
-	public Piece[] hautGauche() { //ensemble des pieces possibles pour le coin en haut � gauche
+	public Piece[] hautGauche() { //ensemble des pieces possibles pour le coin en haut à gauche
 		Piece hautGauche[] = { new Empty_Piece(0, 0, 0),new L_Piece(0, 0, 1), new O_Piece(0, 0, 1), new O_Piece(0, 0, 2) };
 		return hautGauche;
 	}
 	
-	public Piece[] hautDroit() {
+	public Piece[] hautDroit() { //ensemble des pieces possibles pour le coin en haut à droite
 		Piece hautDroit[]= { new Empty_Piece(0, 0, 0), new L_Piece(0,0,2), new O_Piece(0,0,3), new O_Piece(0,0,2)};
 		return hautDroit;
 	}
 	
-	public Piece[] basGauche() {
+	public Piece[] basGauche() { //ensemble des pieces possibles pour le coin en bas à gauche
 		Piece basGauche[]= { new Empty_Piece(0,0,0), new L_Piece(0,0,0), new O_Piece(0,0,0), new O_Piece(0,0,1)};
 		return basGauche;
 	}
 	
-	public Piece[] basDroit() {
+	public Piece[] basDroit() { //ensemble des pieces possibles pour le coin en bas à droite
 		Piece basDroit[]= { new Empty_Piece(0,0,0), new L_Piece(0,0,3), new O_Piece(0,0,0), new O_Piece(0,0,3)};
 		return basDroit;
 	}
 	
-	public Piece[] haut() {
+	public Piece[] haut() { //ensemble des pieces possibles pour le haut
 		Piece haut[]= { new Empty_Piece(0,0,0), new I_Piece(0,0,1), new L_Piece(0,0,1), new L_Piece(0,0,2), new O_Piece(0,0,1), new O_Piece(0,0,3), new O_Piece(0,0,2), new T_Piece(0,0,2)};
 		return haut;
 	}
 	
-	public Piece[] gauche() {
+	public Piece[] gauche() { //ensemble des pieces possibles à gauche
 		Piece gauche[]= { new Empty_Piece(0,0,0), new I_Piece(0,0,0), new L_Piece(0,0,0), new L_Piece(0,0,1), new O_Piece(0,0,1), new O_Piece(0,0,0), new O_Piece(0,0,2), new T_Piece(0,0,1)};
 		return gauche;
 	}
 	
-	public Piece[] droite() {
+	public Piece[] droite() { //ensemble des pieces possibles à droite
 		Piece droite[]= { new Empty_Piece(0,0,0), new I_Piece(0,0,0), new L_Piece(0,0,2), new L_Piece(0,0,3), new O_Piece(0,0,3), new O_Piece(0,0,0), new O_Piece(0,0,2), new T_Piece(0,0,3)};
 		return droite;
 	}
 	
-	public Piece[] bas(){
+	public Piece[] bas(){ //ensemble des pieces possibles pour le bas
 		Piece bas[]={ new Empty_Piece(0,0,0), new I_Piece(0,0,1), new L_Piece(0,0,0), new L_Piece(0,0,3), new O_Piece(0,0,1), new O_Piece(0,0,3), new O_Piece(0,0,3), new T_Piece(0,0,0)};
 		return bas;
 	}
 	
-	public Piece[] milieu() {
+	public Piece[] milieu() { //ensemble des pieces possibles pour le milieu
 		Piece milieu[]= {  new Empty_Piece(0,0,0), new I_Piece(0,0,0), new I_Piece(0,0,1), new L_Piece(0,0,0), new L_Piece(0,0,1), new L_Piece(0,0,2), new L_Piece(0,0,3), new O_Piece(0,0,1), new O_Piece(0,0,3), new O_Piece(0,0,0), new O_Piece(0,0,2), new T_Piece(0,0,0),new T_Piece(0,0,1),new T_Piece(0,0,2),new T_Piece(0,0,3), new X_Piece(0,0,0)};
 		return milieu;
 	}
 	
-	public void generateInitBoard() {
+	public void generateInitBoard() { //genere un jeu deja resolu
 		Piece[][] board=game.getBoard();
 		Random rand = new Random();
 		for (int i=0; i<game.getH(); i++) {
@@ -326,12 +326,12 @@ public class Generator {
 		Random rand = new Random();
 	}*/
 	
-	public void generate() {
+	public void generate() { //genere un jeu solvable
 		this.generateInitBoard();
 		this.mixed(this.game);
 	}
 
-	private void mixed(Game game) {
+	private void mixed(Game game) { //tourne toutes les pieces de maniere aleatoire
 		for (Piece[] pBoard : game.getBoard()) {
 			for (Piece p : pBoard) {
 				for (int i=0; i<new Random().nextInt(3); i++)
@@ -340,7 +340,7 @@ public class Generator {
 		}
 	}
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {  
 		Piece[][] board = new Piece[4][4];
 		Game game=new Game(4,4,board);
 		Generator generator=new Generator(game);
