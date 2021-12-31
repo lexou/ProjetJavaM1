@@ -4,7 +4,7 @@ public class I_Piece extends Piece{
 	
 	//constructeur
 	public I_Piece (int i,int j,int orientation) {
-		super(orientation,i,j);
+		super(i,j,orientation);
 		if(orientation==0) {
 			haut=true; 
 			bas= true;
