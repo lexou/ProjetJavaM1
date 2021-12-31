@@ -16,7 +16,7 @@ public class Checker {
 	}
 	
 	//Methodes
-	public boolean isResolu() { //
+	public boolean isSolution() { //
 		for(int i=0; i<this.game.getH(); i++) {
 			for(int j=0; j<this.game.getW(); j++) {
 				if(!isConnected(this.game.board[i][j])) {
