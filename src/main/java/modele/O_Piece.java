@@ -4,7 +4,7 @@ public class O_Piece extends Piece {
 	
 	//constructeur
 	public O_Piece (int i,int j,int orientation) {
-		super(orientation,i,j);
+		super(i,j,orientation);
 		if(orientation==0) {
 			haut=true;
 			unicode="╹h";
