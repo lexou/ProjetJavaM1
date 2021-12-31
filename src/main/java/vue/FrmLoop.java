@@ -52,14 +52,14 @@ public class FrmLoop extends JFrame implements ActionListener{
 				add(this.b[i][j]);
 				}
 		}
-		//addColor();
-		if(game.isResolu()) System.out.println("Bon");
+		addColor();
 	}
 	
 	public void addColor() { //en cours de reflexion -> le isConnected ne fonctionne peut etre pas correctement
+		Checker checker=new Checker(game);
 		for(int i=0; i<h; i++) {
 			for(int j=0; j<w; j++) {
-				if (game.isConnected(game.board[i][j])) {
+				if (checker.isConnected(game.board[i][j])) {
 					this.b[i][j].setBorder(BorderFactory.createLineBorder(Color.GREEN,1));
 				}
 				else {
@@ -81,7 +81,6 @@ public class FrmLoop extends JFrame implements ActionListener{
 				}
 			}
 		}
-		//addColor();
-		if(game.isResolu()) System.out.println("Bon");
+		addColor();
 	}
 }
