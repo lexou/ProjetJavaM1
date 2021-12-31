@@ -4,7 +4,7 @@ public class X_Piece extends Piece {
 	
 	//constructeur
 	public X_Piece(int i,int j,int orientation) {
-		super(orientation,i,j);
+		super(i,j,orientation);
 		if(orientation==0) {
 			haut=true; 
 			gauche= true; 
