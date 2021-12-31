@@ -41,64 +41,6 @@ public class Game {
 	
 	//Methodes
 	
-	public boolean isResolu() { // Celia: j'me suis dit que ca pourrait faire le taff du checker mais isConnected ne semble pas fonctionner
-		for(int i=0; i<h; i++) {
-			for(int j=0; j<w; j++) {
-				if(!isConnected(this.board[i][j])) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-	
-	public boolean isConnected(Piece p) { //n'a pas l'air de fonctionner pour le moment ?
-		int i=p.getI();
-		int j=p.getJ();
-		Piece p2=null;;
-		if(j-1>=0) { //le cote gauche est connecte?
-			p2=this.board[i][j-1];
-			if (p2!= null) {
-				if(p2.isDroite()) {
-					if (!p.isGauche())return false;
-				}
-				else if (p.isGauche()) return false;
-			}
-			else if (p.isGauche()) return false;
-		}
-		if(j+1<this.w) { //le cote droit est connecte?
-			p2=this.board[i][j+1];
-			if (p2!=null) {
-				if(p2.isGauche()) {
-					if (!p.isDroite())return false;
-				}
-				else if (p.isDroite())return false;
-			}
-			else if (p.isDroite()) return false;
-		}
-		if(i-1>=0) { //le haut est connecte?
-			p2=this.board[i-1][j];
-			if (p2!=null) {
-				if(p2.isBas()) {
-					if (!p.isHaut())return false;
-				}
-				else if (p.isHaut())return false;
-			}
-			else if (p.isHaut()) return false;
-		}
-		if(i+1<this.h) { //le bas est connecte?
-			p2=this.board[i+1][j];
-			if (p2!=null) {
-				if(p2.isHaut()) {
-					if (!p.isBas())return false;
-				}
-				else if (p.isBas())return false;
-			}
-			else if (p.isBas()) return false;
-		}
-		return true;
-	}
-	
 	@Override
 	public String toString() {
 		String s="";
