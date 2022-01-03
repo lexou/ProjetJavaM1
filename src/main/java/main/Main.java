@@ -2,12 +2,18 @@ package main;
 
 import java.io.IOException;
 
+import javax.swing.JFrame;
+
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+
+import GUI.Grid;
+import generateur.Generator;
+import vue.FrmLoop;
 
 /**
  * Parser of the program
@@ -56,7 +62,16 @@ public class Main {
             
             
             // generate grid and store it to outputFile...
-            //...            
+            //... 
+            
+            Grid grid=new Grid(height,width);
+    		Generator generator=new Generator(grid);
+    		generator.generateLevel();
+    		FrmLoop frame = new FrmLoop(grid);
+    	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    		frame.setVisible(true);
+    		
+    		Grid outputGrid=generator.getGrid();
         }
         else if( cmd.hasOption( "s" ) ) {
             System.out.println("Running phineloop solver.");

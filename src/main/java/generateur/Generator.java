@@ -70,7 +70,7 @@ public class Generator {
 	}
 	
 	//Getter
-	public Grid getGame() {
+	public Grid getGrid() {
 		return this.grid;
 	}
 
