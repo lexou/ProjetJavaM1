@@ -1,25 +1,25 @@
 package checker;
 
-import modele.Game;
+import GUI.Grid;
 import modele.Piece;
 
 public class Checker {
-	public Game game;
+	public Grid grid;
 	
-	public Checker(Game game) {
-		this.game=game;
+	public Checker(Grid grid) {
+		this.grid=grid;
 	}
 	
 	//Getter
-	public Game getGame() {
-		return this.game;
+	public Grid getGame() {
+		return this.grid;
 	}
 	
 	//Methodes
 	public boolean isSolution() { //
-		for(int i=0; i<this.game.getH(); i++) {
-			for(int j=0; j<this.game.getW(); j++) {
-				if(!isConnected(this.game.board[i][j])) {
+		for(int i=0; i<this.grid.getHeight(); i++) {
+			for(int j=0; j<this.grid.getWidth(); j++) {
+				if(!isConnected(this.grid.getAllPieces()[i][j])) {
 					return false;
 				}
 			}
@@ -27,71 +27,71 @@ public class Checker {
 		return true;
 	}
 	
-	public boolean isConnected(Piece p) {
-		int i=p.getI();
-		int j=p.getJ();
+	public boolean isConnected(Piece p) { //fonctionner avant, bug maintenant?
+		int i=p.getPosX();
+		int j=p.getPosY();
 		Piece p2=null;
 		if(j-1>=0) { //le cote gauche est connecte?
-			p2=this.game.board[i][j-1];
+			p2=this.grid.getAllPieces()[i][j-1];
 			if (p2!= null) {
-				if(p2.isDroite()) {
-					if (!p.isGauche()) {
+				if(p2.hasRightConnector()) {
+					if (!p.hasLeftConnector()) {
 						return false;
 						}
 				}
-				else if (p.isGauche()) {
+				else if (p.hasLeftConnector()) {
 					return false;
 				}
 			}
-			else if (p.isGauche()) {
+			else if (p.hasLeftConnector()) {
 				return false;
 			}
 		}
-		if(j+1<this.game.getW()) { //le cote droit est connecte?
-			p2=this.game.board[i][j+1];
+		if(j+1<this.grid.getWidth()) { //le cote droit est connecte?
+			p2=this.grid.getAllPieces()[i][j+1];
 			if (p2!=null) {
-				if(p2.isGauche()) {
-					if (!p.isDroite()) {
+				if(p2.hasLeftConnector()) {
+					if (!p.hasRightConnector()) {
 						return false;
 					}
 				}
-				else if (p.isDroite()) {
+				else if (p.hasRightConnector()) {
 					return false;
 				}
 			}
-			else if (p.isDroite()) {
+			else if (p.hasRightConnector()) {
 				return false;
 			}
 		}
 		if(i-1>=0) { //le haut est connecte?
-			p2=this.game.board[i-1][j];
+			p2=this.grid.getAllPieces()[i-1][j];
 			if (p2!=null) {
-				if(p2.isBas()) {
-					if (!p.isHaut()) {
+				if(p2.hasBottomConnector()) {
+					if (!p.hasTopConnector()) {
 						return false;
 					}
 				}
-				else if (p.isHaut()) {
+				else if (p.hasTopConnector()) {
 					return false;
 				}
 			}
-			else if (p.isHaut()) {
+			else if (p.hasTopConnector()) {
 				return false;
 			}
 		}
-		if(i+1<this.game.getH()) { //le bas est connecte?
-			p2=this.game.board[i+1][j];
+		if(i+1<this.grid.getHeight()) { //le bas est connecte?
+			p2=this.grid.getAllPieces()[i+1][j];
 			if (p2!=null) {
-				if(p2.isHaut()) {
-					if (!p.isBas()) {
+				if(p2.hasTopConnector()) {
+					if (!p.hasBottomConnector()) {
 						return false;
 					}
 				}
-				else if (p.isBas()) {
+				else if (p.hasBottomConnector()) {
 					return false;
 				}
 			}
-			else if (p.isBas()) {
+			else if (p.hasBottomConnector()) {
 				return false;
 			}
 		}

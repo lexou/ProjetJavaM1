@@ -6,28 +6,31 @@ import java.awt.event.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import checker.Checker;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import modele.Game;
 import modele.Piece;
+import GUI.Grid;
 
 public class FrmLoop extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
-	private Game game; 
+	private Grid grid; 
 	private int h;
 	private int w;
 	private int imageSize;
 	private JButton[][] b;
 	
 	
-	public FrmLoop(Game game) {
+	public FrmLoop(Grid grid) {
 		super();
-		this.game = game;
-		this.h = game.getH();
-		this.w = game.getW();
+		this.grid = grid;
+		this.h = grid.getHeight();
+		this.w = grid.getWidth();
 		this.b=new JButton[h][w];
 		this.imageSize= 1000/Math.max(h,w);
 		JFrame frame = new JFrame();
@@ -43,10 +46,10 @@ public class FrmLoop extends JFrame implements ActionListener{
 	}
 	
 	public void drawGrid() {
-		Piece[][] board = game.getBoard();
+		Piece[][] board = grid.getAllPieces();
 		for(int i=0; i<h; i++) {
 			for(int j=0; j<w; j++) {
-				ImageIcon icon = (new ImageIcon (new ImageIcon(board[i][j].getLinksImage()).getImage().getScaledInstance(imageSize, imageSize, java.awt.Image.SCALE_SMOOTH)));
+				ImageIcon icon = (new ImageIcon ((grid.getImageIcon(board[i][j])).getImage().getScaledInstance(imageSize, imageSize, java.awt.Image.SCALE_SMOOTH)));
 				this.b[i][j]=new JButton(icon);
 				this.b[i][j].addActionListener(this);
 				add(this.b[i][j]);
@@ -56,10 +59,10 @@ public class FrmLoop extends JFrame implements ActionListener{
 	}
 	
 	public void addColor() { //en cours de reflexion -> le isConnected ne fonctionne peut etre pas correctement
-		Checker checker=new Checker(game);
+		Checker checker=new Checker(grid);
 		for(int i=0; i<h; i++) {
 			for(int j=0; j<w; j++) {
-				if (checker.isConnected(game.board[i][j])) {
+				if (checker.isConnected(grid.getAllPieces()[i][j])) {
 					this.b[i][j].setBorder(BorderFactory.createLineBorder(Color.GREEN,1));
 				}
 				else {
@@ -71,12 +74,12 @@ public class FrmLoop extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent evt) {
 		Object source = evt.getSource();
-		Piece[][] board = this.game.getBoard();
+		Piece[][] board = this.grid.getAllPieces();
 		for(int i=0; i<h; i++) {
 			for(int j=0; j<w; j++) {
 				if(b[i][j]==source) {
-					board[i][j].rotation();
-					b[i][j].setIcon((new ImageIcon (new ImageIcon(board[i][j].getLinksImage()).getImage().getScaledInstance(imageSize, imageSize, java.awt.Image.SCALE_SMOOTH))));
+					board[i][j].turn();
+					b[i][j].setIcon((new ImageIcon ((grid.getImageIcon(board[i][j])).getImage().getScaledInstance(imageSize, imageSize, java.awt.Image.SCALE_SMOOTH))));
 					break;
 				}
 			}
