@@ -32,11 +32,11 @@ public class Piece {
 		this.possibleOrientations = type.getListOfPossibleOri();
 	}
 
-	public Piece(int posY, int posX, PieceType type, Orientation orientation) {
+	public Piece(int posY, int posX, PieceType type, Orientation ori) {
 		this.posX = posX;
 		this.posY = posY;
 		this.type = type;
-		this.orientation = type.getOrientation(orientation);
+		this.orientation = type.getOrientation(ori);
 		this.connectors = type.setConnectorsList(orientation);
 		this.isFixed = false;
 		this.possibleOrientations = type.getListOfPossibleOri();
@@ -140,7 +140,7 @@ public class Piece {
 	 * Turn the piece 90° on the right and redefine the connectors's position
 	 */
 	public void turn() {
-		this.orientation = orientation.turn90();
+		this.orientation = type.getOrientation(orientation.turn90());
 		this.connectors = type.setConnectorsList(orientation);
 	}
 

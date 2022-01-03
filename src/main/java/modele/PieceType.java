@@ -51,7 +51,7 @@ public enum PieceType {
 	LinkedList<Orientation> setConnectorsList(Orientation orientation) { //normalement bon
 		LinkedList<Orientation> list=new LinkedList<Orientation>();
 		if(this.nbrType==0) {
-			list.add(Orientation.EMPTY);
+			
 		}
 		else if(this.nbrType==1){
 			list.add(orientation);
@@ -153,7 +153,7 @@ public enum PieceType {
 
 	 Orientation getOrientation(Orientation orientation) {
 		if(this.nbrType==0) {
-			return Orientation.EMPTY;
+			return Orientation.NORTH;
 		}
 		else if(this.nbrType==1){
 			return Orientation.getOrifromValue(orientation.getNbr()%4);
@@ -172,7 +172,7 @@ public enum PieceType {
 		}
 	}
 
-	int getNbConnectors() { //devrait etre ca ?
+	public int getNbConnectors() { //devrait etre ca ?
 		int nbr=0;
 		for (Orientation ori: this.getListOfPossibleOri()) {
 			nbr++;
