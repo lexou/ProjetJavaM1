@@ -149,14 +149,14 @@ public enum PieceType {
 		}
 		return list;
 	}
+	
 
-	Orientation getOrientation(Orientation orientation) {
+	 Orientation getOrientation(Orientation orientation) {
 		if(this.nbrType==0) {
 			return Orientation.EMPTY;
 		}
 		else if(this.nbrType==1){
 			return Orientation.getOrifromValue(orientation.getNbr()%4);
-		
 		}
 		else if(this.nbrType==2){
 			return Orientation.getOrifromValue(orientation.getNbr()%2); 
@@ -170,6 +170,14 @@ public enum PieceType {
 		else {
 			return Orientation.getOrifromValue(orientation.getNbr()%4);
 		}
+	}
+
+	int getNbConnectors() { //devrait etre ca ?
+		int nbr=0;
+		for (Orientation ori: this.getListOfPossibleOri()) {
+			nbr++;
+		}
+		return nbr;
 	}
 
 }

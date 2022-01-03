@@ -49,9 +49,13 @@ public enum Orientation {
 		}
 	}
 
-	int[] getOpposedPieceCoordinates(Piece p) {
+	public int[] getOpposedPieceCoordinates(Piece p) { //A faire 
 		
 		return null;
+	}
+
+	public Orientation getOpposedOrientation() { //A faire
+		return getOrifromValue(this.nbr+2);
 	}
 	
 }

@@ -225,7 +225,7 @@ public class Grid {
 	 * @return the list of neighbors
 	 */
 	public ArrayList<Piece> listOfNeighbours(Piece p) {
-		ArrayList<Piece> lp = new ArrayList<>();
+		ArrayList<Piece> lp = new ArrayList<Piece>();
 		for (Orientation ori : p.getConnectors()) {
 			int oppPieceY = ori.getOpposedPieceCoordinates(p)[0];// i
 			int oppPieceX = ori.getOpposedPieceCoordinates(p)[1];// j
@@ -545,31 +545,38 @@ public class Grid {
 	
 	public ImageIcon getImageIcon(Piece p) {
 		if (p.getType()==PieceType.VOID) {
+			System.out.println("je bug ici 1");
 			return new ImageIcon(getClass().getResource("/images/Piece00.png")); 
 		}
 		else if (p.getType()==PieceType.ONECONN) {
+
+			System.out.println("je bug ici 2");
 			if (p.getOrientation()==Orientation.NORTH) return new ImageIcon((getClass().getResource("/images/Piece10.png")));
 			if (p.getOrientation()==Orientation.EAST) return new ImageIcon(getClass().getResource("/images/Piece11.png"));
 			if (p.getOrientation()==Orientation.SOUTH) return new ImageIcon(getClass().getResource("/images/Piece12.png"));
 			if (p.getOrientation()==Orientation.WEST) return new ImageIcon(getClass().getResource("/images/Piece13.png"));
 		}
 		else if (p.getType()==PieceType.BAR) {
+			System.out.println("je bug ici 3");
 			if (p.getOrientation()==Orientation.NORTH) return new ImageIcon(getClass().getResource("/images/Piece20.png"));
 			if (p.getOrientation()==Orientation.EAST) return new ImageIcon(getClass().getResource("/images/Piece21.png"));
 		}
 		else if (p.getType()==PieceType.LTYPE) {
+			System.out.println("je bug ici 4");
 			if (p.getOrientation()==Orientation.NORTH) return new ImageIcon(getClass().getResource("/images/Piece50.png"));
 			if (p.getOrientation()==Orientation.EAST) return new ImageIcon(getClass().getResource("/images/Piece51.png"));
 			if (p.getOrientation()==Orientation.SOUTH) return new ImageIcon(getClass().getResource("/images/Piece52.png"));
 			if (p.getOrientation()==Orientation.WEST) return new ImageIcon(getClass().getResource("/images/Piece53.png"));
 		}
 		else if (p.getType()==PieceType.TTYPE) {
+			System.out.println("je bug ici 5");
 			if (p.getOrientation()==Orientation.NORTH) return new ImageIcon(getClass().getResource("/images/Piece30.png"));
 			if (p.getOrientation()==Orientation.EAST) return new ImageIcon(getClass().getResource("/images/Piece31.png"));
 			if (p.getOrientation()==Orientation.SOUTH) return new ImageIcon(getClass().getResource("/images/Piece32.png"));
 			if (p.getOrientation()==Orientation.WEST) return new ImageIcon(getClass().getResource("/images/Piece33.png"));
 		}
 		else {
+			System.out.println("je bug ici 6");
 			return new ImageIcon(getClass().getResource("/images/Piece40.png"));
 		}
 		return null;

@@ -94,7 +94,6 @@ public class Piece {
 
 	public boolean hasTopConnector() {
 		if(this.getConnectors()==null) {
-			System.out.println("Null Top");
 			return false;}
 		for (Orientation ori : this.getConnectors()) {
 			if (ori == Orientation.NORTH) {
@@ -106,11 +105,9 @@ public class Piece {
 
 	public boolean hasRightConnector() {
 		if(this.getConnectors()==null) {
-			System.out.println("Null Right");
 			return false;}
 		for (Orientation ori : this.getConnectors()) {
 			if (ori == Orientation.EAST) {
-				System.out.println("Connexion");
 				return true;
 			}
 		}
@@ -119,7 +116,6 @@ public class Piece {
 
 	public boolean hasBottomConnector() {
 		if(this.getConnectors()==null) {
-			System.out.println("Null Bottom");
 			return false;}
 		for (Orientation ori : this.getConnectors()) {
 			if (ori == Orientation.SOUTH) {
@@ -131,7 +127,6 @@ public class Piece {
 
 	public boolean hasLeftConnector() {
 		if(this.getConnectors()==null) {
-			System.out.println("Null Left");
 			return false;}
 		for (Orientation ori : this.getConnectors()) {
 			if (ori == Orientation.WEST) {
