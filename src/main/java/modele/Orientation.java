@@ -30,7 +30,7 @@ public enum Orientation {
 		return null;
 	}
 
-	Orientation turn90() {
+	Orientation turn90() {  //normalement bon
 		if(this.getNbr()==Orientation.NORTH.nbr) {
 			return Orientation.EAST;
 		}

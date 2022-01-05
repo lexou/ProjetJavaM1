@@ -18,7 +18,6 @@ public class Piece {
 	protected PieceType type;
 	private LinkedList<Orientation> connectors;
 	private ArrayList<Orientation> possibleOrientations;
-
 	private boolean isFixed;
 	
 	
@@ -26,7 +25,7 @@ public class Piece {
 		this.posX = posX;
 		this.posY = posY;
 		this.type = PieceType.VOID;
-		this.orientation = Orientation.NORTH;
+		this.orientation = type.getOrientation(Orientation.NORTH);
 		this.connectors = type.setConnectorsList(Orientation.NORTH);
 		this.isFixed = false; // Is there any orientation for the piece
 		this.possibleOrientations = type.getListOfPossibleOri();
@@ -83,7 +82,7 @@ public class Piece {
 	}
 
 	public void setOrientation(int orientationValue) {
-		this.orientation = Orientation.getOrifromValue(orientationValue);
+		this.orientation =type.getOrientation(Orientation.getOrifromValue(orientationValue));
 		this.connectors = type.setConnectorsList(this.orientation);
 	}
 
@@ -93,8 +92,7 @@ public class Piece {
 	}
 
 	public boolean hasTopConnector() {
-		if(this.getConnectors()==null) {
-			return false;}
+		//if(this.getConnectors()==null) return false;
 		for (Orientation ori : this.getConnectors()) {
 			if (ori == Orientation.NORTH) {
 				return true;
@@ -104,8 +102,7 @@ public class Piece {
 	}
 
 	public boolean hasRightConnector() {
-		if(this.getConnectors()==null) {
-			return false;}
+		//if(this.getConnectors()==null) return false;
 		for (Orientation ori : this.getConnectors()) {
 			if (ori == Orientation.EAST) {
 				return true;
@@ -115,8 +112,7 @@ public class Piece {
 	}
 
 	public boolean hasBottomConnector() {
-		if(this.getConnectors()==null) {
-			return false;}
+		//if(this.getConnectors()==null) return false;
 		for (Orientation ori : this.getConnectors()) {
 			if (ori == Orientation.SOUTH) {
 				return true;
@@ -126,8 +122,7 @@ public class Piece {
 	}
 
 	public boolean hasLeftConnector() {
-		if(this.getConnectors()==null) {
-			return false;}
+		//if(this.getConnectors()==null) return false;
 		for (Orientation ori : this.getConnectors()) {
 			if (ori == Orientation.WEST) {
 				return true;
@@ -139,7 +134,7 @@ public class Piece {
 	/**
 	 * Turn the piece 90° on the right and redefine the connectors's position
 	 */
-	public void turn() {
+	public void turn() { 
 		this.orientation = type.getOrientation(orientation.turn90());
 		this.connectors = type.setConnectorsList(orientation);
 	}

@@ -71,7 +71,7 @@ public class Main {
     	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     		frame.setVisible(true);
     		
-    		Grid outputGrid=generator.getGrid();
+    		Grid outputGrid=generator.getGrid(); //la mettre dans un fichier
         }
         else if( cmd.hasOption( "s" ) ) {
             System.out.println("Running phineloop solver.");
@@ -93,6 +93,8 @@ public class Main {
             
             // load grid from inputFile and check if it is solved... 
             //...
+            
+            
             System.out.println("SOLVED: " + solved);           
         }
         else {

@@ -51,7 +51,7 @@ public enum PieceType {
 	LinkedList<Orientation> setConnectorsList(Orientation orientation) { //normalement bon
 		LinkedList<Orientation> list=new LinkedList<Orientation>();
 		if(this.nbrType==0) {
-			
+			//list=null;
 		}
 		else if(this.nbrType==1){
 			list.add(orientation);
@@ -62,7 +62,7 @@ public enum PieceType {
 				list.add(Orientation.NORTH);
 				list.add(Orientation.SOUTH);
 			}
-			if(orientation==Orientation.EAST) {
+			else if(orientation==Orientation.EAST) {
 				list.add(Orientation.EAST);
 				list.add(Orientation.WEST);
 			}
@@ -73,17 +73,17 @@ public enum PieceType {
 				list.add(Orientation.EAST);
 				list.add(Orientation.WEST);
 			}
-			if(orientation==Orientation.EAST) {
+			else if(orientation==Orientation.EAST) {
 				list.add(Orientation.NORTH);
 				list.add(Orientation.SOUTH);
 				list.add(Orientation.EAST);
 			}
-			if(orientation==Orientation.SOUTH) {
+			else if(orientation==Orientation.SOUTH) {
 				list.add(Orientation.EAST);
 				list.add(Orientation.SOUTH);
 				list.add(Orientation.WEST);
 			}
-			if(orientation==Orientation.WEST) {
+			else if(orientation==Orientation.WEST) {
 				list.add(Orientation.NORTH);
 				list.add(Orientation.SOUTH);
 				list.add(Orientation.WEST);
@@ -100,15 +100,15 @@ public enum PieceType {
 				list.add(Orientation.NORTH);
 				list.add(Orientation.EAST);
 			}
-			if(orientation==Orientation.EAST) {
+			else if(orientation==Orientation.EAST) {
 				list.add(Orientation.SOUTH);
 				list.add(Orientation.EAST);
 			}
-			if(orientation==Orientation.SOUTH) {
+			else if(orientation==Orientation.SOUTH) {
 				list.add(Orientation.SOUTH);
 				list.add(Orientation.WEST);
 			}
-			if(orientation==Orientation.WEST) {
+			else if(orientation==Orientation.WEST) {
 				list.add(Orientation.NORTH);
 				list.add(Orientation.WEST);
 			}
@@ -172,12 +172,25 @@ public enum PieceType {
 		}
 	}
 
-	public int getNbConnectors() { //devrait etre ca ?
-		int nbr=0;
-		for (Orientation ori: this.getListOfPossibleOri()) {
-			nbr++;
+	public int getNbConnectors() { //normalement bon
+		if(this.nbrType==0) {
+			return 0;
 		}
-		return nbr;
+		else if(this.nbrType==1){
+			return 1;
+		}
+		else if(this.nbrType==2){
+			return 2; 
+			}
+		else if(this.nbrType==3){
+			return 3;
+			}
+		else if(this.nbrType==4){
+			return 4;
+		}
+		else {
+			return 2;
+		}
 	}
 
 }

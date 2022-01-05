@@ -390,6 +390,7 @@ public class Generator {
 		//Piece[][] board = new Piece[3][3];
 		Grid grid=new Grid(4,4);
 		Generator generator=new Generator(grid);
+		//generator.generateInitBoard();
 		generator.generateLevel();
 		FrmLoop frame = new FrmLoop(grid);
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

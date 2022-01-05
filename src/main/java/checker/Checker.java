@@ -28,8 +28,8 @@ public class Checker {
 	}
 	
 	public boolean isConnected(Piece p) { //fonctionner avant, bug maintenant?
-		int i=p.getPosX();
-		int j=p.getPosY();
+		int j=p.getPosX();
+		int i=p.getPosY();
 		Piece p2=null;
 		if(j-1>=0) { //le cote gauche est connecte?
 			p2=this.grid.getAllPieces()[i][j-1];
