@@ -16,7 +16,7 @@ public class Checker {
 	}
 	
 	//Methodes
-	public boolean isSolution() { //
+	public boolean isSolution() { //normalement bon
 		for(int i=0; i<this.grid.getHeight(); i++) {
 			for(int j=0; j<this.grid.getWidth(); j++) {
 				if(!isConnected(this.grid.getAllPieces()[i][j])) {
@@ -27,7 +27,7 @@ public class Checker {
 		return true;
 	}
 	
-	public boolean isConnected(Piece p) { //fonctionner avant, bug maintenant?
+	public boolean isConnected(Piece p) { //normalement bon
 		int j=p.getPosX();
 		int i=p.getPosY();
 		Piece p2=null;

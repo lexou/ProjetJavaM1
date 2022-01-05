@@ -13,9 +13,8 @@ import modele.Piece;
 import vue.FrmLoop;
 
 public class Generator {
-	private Grid grid;
+	private static Grid filledGrid;
 	
-	//private static Grid filledGrid;
 
 	/**
 	 * @param output
@@ -31,15 +30,15 @@ public class Generator {
 		// To be implemented
 	}*/
 	
-	/*public static int[] copyGrid(Grid filledGrid, Grid inputGrid, int i, int j) {
+	public static int[] copyGrid(Grid filledGrid, Grid inputGrid, int i, int j) {
 		Piece p;
-		int hmax = inputGrid.getHeighteight();
-		int wmax = inputGrid.getWidthidth();
+		int hmax = inputGrid.getHeight();
+		int wmax = inputGrid.getWidth();
 
-		if (inputGrid.getHeighteight() != filledGrid.getHeighteight())
-			hmax = filledGrid.getHeighteight() + i; // we must adjust hmax to have the height of the original grid
-		if (inputGrid.getWidthidth() != filledGrid.getWidthidth())
-			wmax = filledGrid.getWidthidth() + j;
+		if (inputGrid.getHeight() != filledGrid.getHeight())
+			hmax = filledGrid.getHeight() + i; // we must adjust hmax to have the height of the original filledGrid
+		if (inputGrid.getWidth() != filledGrid.getWidth())
+			wmax = filledGrid.getWidth() + j;
 
 		int tmpi = 0;// temporary variable to stock the last index
 		int tmpj = 0;
@@ -61,17 +60,17 @@ public class Generator {
 		}
 		//DEBUGSystem.out.println("tmpi =" + tmpi + " & tmpj = " + tmpj);
 		return new int[] { tmpi, tmpj };
-	}*/
+	}
 	
 	
 	
-	public Generator(Grid grid) {
-		this.grid=grid;
+	public Generator(Grid filledGrid) {
+		this.filledGrid=filledGrid;
 	}
 	
 	//Getter
 	public Grid getGrid() {
-		return this.grid;
+		return this.filledGrid;
 	}
 
 	//Setter
@@ -123,14 +122,14 @@ public class Generator {
 	}
 	
 	public void generateInitBoard() {
-		Piece[][] board=grid.getAllPieces();
+		Piece[][] board=filledGrid.getAllPieces();
 		Random rand = new Random();
-		for (int i=0; i<grid.getHeight(); i++) {
-			for (int j=0; j<grid.getWidth(); j++) {
+		for (int i=0; i<filledGrid.getHeight(); i++) {
+			for (int j=0; j<filledGrid.getWidth(); j++) {
 				if(i==0 && j==0) { //coin haut Gauche
 					board[i][j]=hautGauche()[rand.nextInt(hautGauche().length)];
 				}
-				else if(i==0 && j<grid.getWidth()-1) { //haut
+				else if(i==0 && j<filledGrid.getWidth()-1) { //haut
 					if(board[i][j-1].hasRightConnector()){ //si contact du cote droit
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
 						for( Piece p : haut(i,j)) {
@@ -150,7 +149,7 @@ public class Generator {
 						board[i][j]=tmp.get(rand.nextInt(tmp.size()));	
 					}
 				}
-				else if (i==0 && j==grid.getWidth()-1) { // coin haut droit
+				else if (i==0 && j==filledGrid.getWidth()-1) { // coin haut droit
 					if(board[i][j-1].hasRightConnector()){ //si contact du cote droit
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
 						for( Piece p : hautDroit(i,j)) {
@@ -170,7 +169,7 @@ public class Generator {
 						board[i][j]=tmp.get(rand.nextInt(tmp.size()));
 					}
 				}
-				else if (i<grid.getWidth()-1 && j==0) { // cote gauche
+				else if (i<filledGrid.getWidth()-1 && j==0) { // cote gauche
 					if(board[i-1][j].hasBottomConnector()) { //si contact en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
 						for( Piece p : gauche(i,j)) {
@@ -190,7 +189,7 @@ public class Generator {
 						board[i][j]=tmp.get(rand.nextInt(tmp.size()));
 					}
 				}
-				else if (i<grid.getHeight()-1 && j==grid.getWidth()-1) {  //cote droit
+				else if (i<filledGrid.getHeight()-1 && j==filledGrid.getWidth()-1) {  //cote droit
 					if(board[i][j-1].hasRightConnector() && board[i-1][j].hasBottomConnector()) { //si contact a droite et en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
 						for( Piece p : droite(i,j)) {
@@ -228,7 +227,7 @@ public class Generator {
 						board[i][j]=tmp.get(rand.nextInt(tmp.size()));
 					}
 				}
-				else if (i==grid.getHeight()-1 && j==0) { //coin bas gauche
+				else if (i==filledGrid.getHeight()-1 && j==0) { //coin bas gauche
 					if(board[i-1][j].hasBottomConnector()) { //si contact en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
 						for( Piece p : basGauche(i,j)) {
@@ -248,7 +247,7 @@ public class Generator {
 						board[i][j]=tmp.get(rand.nextInt(tmp.size()));
 					}
 				}
-				else if (i==grid.getHeight()-1 && j<grid.getWidth()-1) { //bas
+				else if (i==filledGrid.getHeight()-1 && j<filledGrid.getWidth()-1) { //bas
 					if(board[i][j-1].hasRightConnector() && board[i-1][j].hasBottomConnector()) { //si contact en bas et a droite
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
 						for( Piece p : bas(i,j)) {
@@ -286,7 +285,7 @@ public class Generator {
 						board[i][j]=tmp.get(rand.nextInt(tmp.size()));
 					}
 				}
-				else if (i==grid.getHeight()-1 && j==grid.getWidth()-1) { //coin bas droit
+				else if (i==filledGrid.getHeight()-1 && j==filledGrid.getWidth()-1) { //coin bas droit
 					if (board[i][j-1].hasRightConnector() && board[i-1][j].hasBottomConnector()) { // si contact a droite et en bas
 						ArrayList<Piece> tmp= new ArrayList<Piece>();
 						for( Piece p : basDroit(i,j)) {
@@ -368,17 +367,17 @@ public class Generator {
 
 	
 	/*public void generateInitBoard(int nbcc) { //en cours de reflexion
-		Piece[][] board=grid.getBoard();
+		Piece[][] board=filledGrid.getBoard();
 		Random rand = new Random();
 	}*/
 	
 	public void generateLevel() {
 		this.generateInitBoard();
-		this.mixed(this.grid);
+		this.mixed(this.filledGrid);
 	}
 
-	private void mixed(Grid grid) {
-		for (Piece[] pBoard : grid.getAllPieces()) {
+	private void mixed(Grid filledGrid) {
+		for (Piece[] pBoard : filledGrid.getAllPieces()) {
 			for (Piece p : pBoard) {
 				for (int i=0; i<new Random().nextInt(3); i++)
 					p.turn();
@@ -388,11 +387,11 @@ public class Generator {
 	
 	public static void main(String[] args) throws IOException {
 		//Piece[][] board = new Piece[3][3];
-		Grid grid=new Grid(4,4);
-		Generator generator=new Generator(grid);
+		Grid filledGrid=new Grid(4,4);
+		Generator generator=new Generator(filledGrid);
 		//generator.generateInitBoard();
 		generator.generateLevel();
-		FrmLoop frame = new FrmLoop(grid);
+		FrmLoop frame = new FrmLoop(filledGrid);
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		}
